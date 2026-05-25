@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT StayOn — Installation Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:        #0A5FE8;
+    --blue-dark:   #063FA0;
+    --blue-light:  #E8F0FD;
+    --orange:      #F57C00;
+    --orange-light:#FFF3E0;
+    --dark:        #0D1117;
+    --mid:         #1E2535;
+    --text:        #1A1F2E;
+    --muted:       #5A6478;
+    --border:      #DDE3EF;
+    --surface:     #F7F9FC;
+    --white:       #FFFFFF;
+    --radius:      8px;
+    --radius-lg:   14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--blue);
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .logo-wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-wordmark span { color: var(--blue); }
+
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .header-doc {
+    text-align: right;
+  }
+
+  .header-doc-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  .header-doc-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--mid);
+    padding: 52px 24px 44px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span { color: var(--blue); }
+
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .badge.primary {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 20px;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+    padding: 13px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-link:hover {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 72px;
+    scroll-margin-top: 130px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 5px 11px;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  /* ── PROSE ── */
+  .prose p {
+    font-size: 15px;
+    line-height: 1.78;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { font-weight: 500; }
+
+  /* ── SPEC CARDS ── */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .spec-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .spec-card-head {
+    background: var(--dark);
+    color: white;
+    padding: 16px 22px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+  }
+
+  .spec-card-head span { color: var(--orange); }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 22px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    gap: 16px;
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row:nth-child(odd) { background: var(--surface); }
+
+  .spec-key { color: var(--muted); white-space: nowrap; }
+  .spec-val { font-weight: 500; text-align: right; }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .callout-icon {
+    font-size: 18px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .callout-title {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .callout.danger {
+    background: #FFF0F0;
+    border-left: 4px solid #C62828;
+  }
+  .callout.danger .callout-title { color: #B71C1C; }
+
+  .callout.warning {
+    background: #FFF8E1;
+    border-left: 4px solid var(--orange);
+  }
+  .callout.warning .callout-title { color: #E65100; }
+
+  .callout.note {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+  }
+  .callout.note .callout-title { color: var(--blue-dark); }
+
+  .callout.tip {
+    background: #F1F8E9;
+    border-left: 4px solid #558B2F;
+  }
+  .callout.tip .callout-title { color: #33691E; }
+
+  /* ── CONFIG TABLES ── */
+  .config-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .config-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  thead th {
+    background: var(--mid);
+    color: white;
+    padding: 11px 16px;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: var(--surface); }
+
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .pill-blue { background: var(--blue-light); color: var(--blue-dark); }
+  .pill-orange { background: var(--orange-light); color: #7A4000; }
+  .pill-green { background: #F1F8E9; color: #33691E; }
+  .pill-gray { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+
+  /* ── STEPS ── */
+  .steps { margin: 24px 0; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 34px;
+    height: 34px;
+    background: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-body { flex: 1; padding-top: 4px; }
+
+  .step-title {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .step-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .step-body p:last-child { margin-bottom: 0; }
+
+  /* ── DECODER TABLE ── */
+  .decoder-table thead th { background: var(--blue); }
+
+  /* ── TROUBLESHOOT ── */
+  .trouble-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .trouble-q {
+    padding: 15px 20px;
+    background: var(--surface);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    transition: background 0.15s;
+    list-style: none;
+  }
+
+  .trouble-q:hover { background: var(--blue-light); }
+
+  .trouble-chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+
+  .trouble-item.open .trouble-chevron { transform: rotate(180deg); }
+
+  .trouble-a {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    display: none;
+  }
+
+  .trouble-item.open .trouble-a { display: block; }
+
+  /* ── WARRANTY ── */
+  .warranty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px 26px;
+  }
+
+  .card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+
+  .card p {
+    font-size: 13px;
+    line-height: 1.72;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── CONTACT BLOCK ── */
+  .contact-block {
+    background: var(--dark);
+    border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .contact-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: white;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .contact-row:last-child { margin-bottom: 0; }
+
+  .contact-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    width: 60px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .contact-val { color: rgba(255,255,255,0.75); }
+
+  /* ── PLACEHOLDER ── */
+  .placeholder {
+    background: repeating-linear-gradient(
+      45deg, #fff8e1, #fff8e1 8px, #fff3cd 8px, #fff3cd 16px
+    );
+    border: 2px dashed var(--orange);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7A4000;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .placeholder::before {
+    content: '⚠ TODO:';
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .footer-logo span { color: var(--blue); }
+
+  .footer-name {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+    margin-top: 16px;
+  }
+
+  .footer-dot {
+    display: inline-block;
+    margin: 0 8px;
+    opacity: 0.4;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 620px) {
+    .spec-grid { grid-template-columns: 1fr; }
+    .warranty-grid { grid-template-columns: 1fr; }
+    main { padding: 36px 16px 72px; }
+    .header-doc { display: none; }
+    .hero { padding: 40px 20px 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-wordmark">N<span>X</span>T</div>
+      <div class="logo-sub">Level Technology · StayOn Series</div>
+    </div>
+    <div class="header-doc">
+      <div class="header-doc-title">Installation Manual</div>
+      <div class="header-doc-sub">Version 1.0 &nbsp;·&nbsp; 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">DCC Keep-Alive Module · Installation Manual</div>
+  <h1>NXT <span>StayOn</span></h1>
+  <p class="hero-desc">Smooth, uninterrupted running on any DCC layout — in H0 and N scale.</p>
+  <div class="badges">
+    <span class="badge primary">StayOn-H0</span>
+    <span class="badge primary">StayOn-N</span>
+    <span class="badge">Made in South Africa</span>
+    <span class="badge">All DCC Systems</span>
+    <span class="badge">Max 20V DC</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-link" href="#overview">Overview</a>
+    <a class="nav-link" href="#specs">Specifications</a>
+    <a class="nav-link" href="#safety">Safety</a>
+    <a class="nav-link" href="#install">Installation</a>
+    <a class="nav-link" href="#config">Configurations</a>
+    <a class="nav-link" href="#decoders">Decoders</a>
+    <a class="nav-link" href="#troubleshoot">Troubleshooting</a>
+    <a class="nav-link" href="#warranty">Warranty</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── 01 OVERVIEW ── -->
+  <section class="section" id="overview">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <div class="section-title">Product Overview</div>
+        <div class="section-sub">What it is and what it does</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>The <strong>NXT StayOn</strong> is a high-quality DCC keep-alive module designed to eliminate the frustrating stalls that occur when a locomotive loses contact with the track — on dirty rail, over unpowered turnout frogs, or across any brief interruption in power.</p>
+      <p>It works by storing energy in a bank of capacitors and releasing it instantly to keep your locomotive's decoder and motor running through those interruptions. The result is smooth, uninterrupted operation on any DCC layout, regardless of track or turnout condition.</p>
+      <p>The NXT StayOn is available in two versions: <strong>StayOn-H0</strong> for H0 scale and <strong>StayOn-N</strong> for N scale. Both feature a hardware soft-start circuit using the Texas Instruments TPS22810 load switch IC, which limits inrush current during capacitor charging and prevents booster shutdowns. Both versions maintain full decoder programmability at all times.</p>
+      <p>Each board can be configured for the space available inside your locomotive — by populating one or both sides with capacitors, and by cutting the board to a shorter length at designated cut points. This flexibility makes the NXT StayOn suitable for the smallest N scale tank engines as well as large H0 locomotives with generous body space.</p>
+      <p>Designed and assembled in South Africa to the highest standards, the NXT StayOn delivers professional-grade performance at a price that makes sense for every modeller.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="callout note">
+      <div class="callout-icon">📦</div>
+      <div class="callout-body">
+        <div class="callout-title">Package Contents</div>
+        Each NXT StayOn is supplied as a fully assembled and tested PCB module. No additional components are required. Connecting wire is not included — see Section 4 for wire recommendations.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 SPECIFICATIONS ── -->
+  <section class="section" id="specs">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <div class="section-title">Technical Specifications</div>
+        <div class="section-sub">Full board, both sides populated</div>
+      </div>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-card-head">StayOn-<span>H0</span></div>
+        <div class="spec-row"><span class="spec-key">Max track voltage</span><span class="spec-val">20V DC</span></div>
+        <div class="spec-row"><span class="spec-key">Capacitance — full board</span><span class="spec-val">2,300 µF</span></div>
+        <div class="spec-row"><span class="spec-key">Capacitance — top side only</span><span class="spec-val">1,100 µF</span></div>
+        <div class="spec-row"><span class="spec-key">Board dimensions</span><span class="spec-val">37.0 × 14.0 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Height — one side</span><span class="spec-val">3.0 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Height — both sides</span><span class="spec-val">5.0 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Soft-start IC</span><span class="spec-val">TPS22810DBVR</span></div>
+        <div class="spec-row"><span class="spec-key">Rectifier</span><span class="spec-val">SS1040HEWS Schottky</span></div>
+        <div class="spec-row"><span class="spec-key">Total capacitors</span><span class="spec-val">23 × 100 µF 20V</span></div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-card-head">StayOn-<span>N</span></div>
+        <div class="spec-row"><span class="spec-key">Max track voltage</span><span class="spec-val">20V DC</span></div>
+        <div class="spec-row"><span class="spec-key">Capacitance — full board</span><span class="spec-val">900 µF</span></div>
+        <div class="spec-row"><span class="spec-key">Capacitance — top side only</span><span class="spec-val">400 µF</span></div>
+        <div class="spec-row"><span class="spec-key">Board dimensions</span><span class="spec-val">23.5 × 9.5 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Height — one side</span><span class="spec-val">3.0 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Height — both sides</span><span class="spec-val">5.0 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Soft-start IC</span><span class="spec-val">TPS22810DBVR</span></div>
+        <div class="spec-row"><span class="spec-key">Rectifier</span><span class="spec-val">SS1040HEWS Schottky</span></div>
+        <div class="spec-row"><span class="spec-key">Total capacitors</span><span class="spec-val">9 × 100 µF 20V</span></div>
+      </div>
+    </div>
+
+    <div class="callout note">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">DCC System Compatibility</div>
+        The NXT StayOn is compatible with all DCC systems operating at track voltages up to 20V DC. This includes all major brands including Digitrax, ESU ECoS, Roco z21, NCE, Lenz, and Märklin MFX systems running in DCC mode. The hardware soft-start circuit ensures compatibility even with sensitive boosters.
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Why 20V?</div>
+        Standard DCC track voltage is typically 14–18V. The NXT StayOn's 20V rating gives comfortable headroom above this, ensuring reliable operation even on systems running at the higher end of the DCC voltage range. This is a deliberate design margin — do not exceed 20V DC.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 SAFETY ── -->
+  <section class="section" id="safety">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div>
+        <div class="section-title">Safety Instructions</div>
+        <div class="section-sub">Read carefully before installation</div>
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-body">
+        <div class="callout-title">Critical — Polarity</div>
+        Connecting the NXT StayOn with reversed polarity will permanently damage both the module and your decoder. This damage is not covered by the warranty. Always identify and verify the + (positive) and − (negative/ground) connections before applying power. If you are unsure, do not guess — consult your decoder's documentation.
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-icon">✂️</div>
+      <div class="callout-body">
+        <div class="callout-title">Critical — Cutting the Board</div>
+        Always disconnect all power before cutting the board to size. Cut only at the designated cut lines. Do not cut through any capacitor, solder joint, or connection pad. Cutting in the wrong place will permanently damage the module and is not covered by the warranty.
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <div class="callout-title">General Safety</div>
+        Use this module only indoors in a clean, dry environment. Keep away from moisture, condensation, and water at all times. Always switch off the power supply before carrying out any wiring work. If condensation has formed on the module, allow at least two hours for it to dry completely before applying power.
+      </div>
+    </div>
+
+    <div class="callout note">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">Intended Use</div>
+        The NXT StayOn is designed exclusively for use in DCC model railway applications. Any other use is outside the scope of intended use and will void the warranty. This module is not a toy and should be kept out of reach of young children.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 INSTALLATION ── -->
+  <section class="section" id="install">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div>
+        <div class="section-title">Installation Guide</div>
+        <div class="section-sub">Step-by-step wiring instructions</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>The NXT StayOn connects to your DCC decoder via two solder pads on the board, marked <strong>+</strong> (positive) and <strong>−</strong> (ground). These pads accept fine enamelled copper wire or standard decoder lead wire. Before starting, identify the appropriate connection point on your decoder — most modern decoders provide dedicated capacitor or keep-alive pads. See Section 6 for decoder-specific guidance.</p>
+    </div>
+
+    <div class="callout note">
+      <div class="callout-icon">🔧</div>
+      <div class="callout-body">
+        <div class="callout-title">What You Will Need</div>
+        A fine-tipped soldering iron (recommended 280–320°C) · Fine solder (0.5mm or 0.6mm recommended) · 0.05–0.10mm² enamelled copper wire or fine decoder lead wire · Small side-cutters or wire strippers · Double-sided foam tape or silicone adhesive for securing the module.
+      </div>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Switch off all track power</div>
+          <p>Ensure your DCC system is fully powered down before beginning. Never solder or connect wires while the track is live. If your system has a separate programming track, switch that off too.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Choose your configuration</div>
+          <p>Before soldering, decide which board configuration best suits the available space in your locomotive. See Section 5 for all options and dimensions. If you need to cut the board, do so now before any soldering — it is much easier to cut an unsoldered board.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Identify the connection pads on the NXT StayOn</div>
+          <p>Locate the two gold solder pads on the component side of the board. The pad marked <strong>+</strong> is the positive connection. The pad marked <strong>−</strong> is ground. These markings are printed on the PCB silkscreen alongside each pad.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Tin the pads and your wire</div>
+          <p>Apply a small amount of solder to each pad and to the stripped ends of your connecting wire before joining them. This technique — known as tinning — ensures a clean, reliable solder joint and makes the final connection quick and neat. Keep the iron on each pad for no more than two to three seconds.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Solder the wires to the StayOn pads</div>
+          <p>Connect <strong>+ to +</strong> and <strong>− to −</strong>. Double-check polarity before touching the iron to the joint. Keep wires short — 30 to 50mm is usually sufficient. A clean joint should be shiny and smooth; a dull or grainy joint indicates a cold solder — reheat and re-flow if necessary.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-title">Solder the other ends to your decoder</div>
+          <p>Connect to the appropriate keep-alive or capacitor pads on your decoder, matching polarity carefully. See Section 6 for decoder-specific pad locations. Check polarity one final time before applying heat. If your decoder does not have dedicated pads, connect to the internal DC supply — positive to positive, ground to ground.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <div class="step-title">Secure the module inside the locomotive</div>
+          <p>Fix the NXT StayOn in place using a small piece of double-sided foam tape or a dab of silicone adhesive. Ensure the module cannot move in service and that it makes no contact with any metal parts of the chassis, motor, or drivetrain. Route wires neatly and secure with a small cable tie or tape if needed, keeping them well clear of the flywheel and motor.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <div class="step-title">Test before reassembly</div>
+          <p>Before closing up the locomotive body, restore track power and place the locomotive on the track with the body held open or removed. Run it slowly across a known problem spot such as a turnout frog. The locomotive should now pass over it smoothly without stalling. If all is well, close up the body and run a final test on the layout.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Tip — Wire Length and Routing</div>
+        Keep connecting wires as short as practically possible — typically 30 to 50mm. Longer wires add unnecessary resistance and clutter inside the body shell. If routing around the motor, use a small piece of heat-shrink tubing over any exposed solder joints to prevent accidental shorts.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 CONFIGURATIONS ── -->
+  <section class="section" id="config">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div>
+        <div class="section-title">Board Configurations</div>
+        <div class="section-sub">Size, capacitance, and cut options</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>One of the NXT StayOn's most practical features is its ability to be configured to suit the available space inside your locomotive. Each board offers three ways to adjust its size and capacitance: choosing which sides to populate, and cutting the board to a shorter length at one of the designated cut lines.</p>
+      <p>Choose the configuration that best balances the space available in your locomotive body with the level of keep-alive protection your layout requires. In general, more capacitance means the locomotive can bridge longer power gaps — but even the smallest configuration will make a noticeable improvement on most layouts.</p>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon">✂️</div>
+      <div class="callout-body">
+        <div class="callout-title">Cutting Instructions</div>
+        Always power down before cutting. Use a sharp PCB scribe and steel rule to score the cut line, then snap cleanly. A jeweller's saw or fine-toothed razor saw also works well. Never use scissors, side-cutters, or tin snips — these will crack the board and may damage adjacent components. Cut lines will be marked on the PCB silkscreen from the next board revision onwards.
+      </div>
+    </div>
+
+    <div class="config-section-title">StayOn-H0 — All Configurations</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Configuration</th>
+          <th>Cut position</th>
+          <th>Capacitance</th>
+          <th>Height</th>
+          <th>Best suited for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Full — both sides</strong></td>
+          <td><span class="pill pill-gray">No cut</span></td>
+          <td><span class="pill pill-blue">2,300 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Maximum protection, large locos with generous body space</td>
+        </tr>
+        <tr>
+          <td><strong>Full — top side only</strong></td>
+          <td><span class="pill pill-gray">No cut</span></td>
+          <td><span class="pill pill-blue">1,100 µF</span></td>
+          <td>3.0 mm</td>
+          <td>Full-length board, height-restricted locos</td>
+        </tr>
+        <tr>
+          <td><strong>Cut A — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C7/C8 and C10/C11</span></td>
+          <td><span class="pill pill-blue">1,700 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Slightly shorter, high capacitance retained</td>
+        </tr>
+        <tr>
+          <td><strong>Cut B — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C5/C6 and C11/C12</span></td>
+          <td><span class="pill pill-blue">1,100 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Medium length, good all-round choice</td>
+        </tr>
+        <tr>
+          <td><strong>Cut C — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C3/C4 and C12/C13</span></td>
+          <td><span class="pill pill-blue">500 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Shortest board, tight spaces</td>
+        </tr>
+        <tr>
+          <td><strong>Cut C — top side only</strong></td>
+          <td><span class="pill pill-orange">Between C3/C4 and C12/C13</span></td>
+          <td><span class="pill pill-blue">500 µF</span></td>
+          <td>3.0 mm</td>
+          <td>Minimum footprint, very tight installations</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="placeholder">Board lengths after each cut to be confirmed by Mike and added here before publication.</div>
+
+    <div class="config-section-title">StayOn-N — All Configurations</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Configuration</th>
+          <th>Cut position</th>
+          <th>Capacitance</th>
+          <th>Height</th>
+          <th>Best suited for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Full — both sides</strong></td>
+          <td><span class="pill pill-gray">No cut</span></td>
+          <td><span class="pill pill-green">900 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Maximum protection for N scale</td>
+        </tr>
+        <tr>
+          <td><strong>Full — top side only</strong></td>
+          <td><span class="pill pill-gray">No cut</span></td>
+          <td><span class="pill pill-green">400 µF</span></td>
+          <td>3.0 mm</td>
+          <td>Full-length board, reduced height</td>
+        </tr>
+        <tr>
+          <td><strong>Cut A — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C5/C6</span></td>
+          <td><span class="pill pill-green">700 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Slightly shorter, most capacitance retained</td>
+        </tr>
+        <tr>
+          <td><strong>Cut B — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C4/C5</span></td>
+          <td><span class="pill pill-green">600 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Medium length and capacitance</td>
+        </tr>
+        <tr>
+          <td><strong>Cut C — both sides</strong></td>
+          <td><span class="pill pill-orange">Between C3/C4</span></td>
+          <td><span class="pill pill-green">300 µF</span></td>
+          <td>5.0 mm</td>
+          <td>Shortest board for very tight N scale locos</td>
+        </tr>
+        <tr>
+          <td><strong>Cut C — top side only</strong></td>
+          <td><span class="pill pill-orange">Between C3/C4</span></td>
+          <td><span class="pill pill-green">300 µF</span></td>
+          <td>3.0 mm</td>
+          <td>Absolute minimum footprint</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="placeholder">Board lengths after each cut to be confirmed by Mike and added here before publication.</div>
+
+    <div class="callout note">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">Which Configuration Should I Choose?</div>
+        If space allows, always use the full board with both sides populated for maximum keep-alive duration. If height is the limiting factor, use the top side only — you retain the full board length and a useful level of capacitance. If length is the issue, work down through the cut options until the board fits. Even 300 µF will provide a noticeable improvement over no keep-alive module at all.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 DECODERS ── -->
+  <section class="section" id="decoders">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div>
+        <div class="section-title">Decoder Compatibility &amp; CV Settings</div>
+        <div class="section-sub">Connection points and configuration values for popular decoders</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>The NXT StayOn connects to the capacitor or keep-alive pads found on most modern DCC decoders. The module itself requires no CV programming — it is entirely passive from the decoder's perspective. However, many decoders include internal CVs that determine how long they will draw power from an external buffer capacitor when the DCC signal is interrupted. Setting these correctly will significantly improve the effectiveness of your NXT StayOn.</p>
+      <p>The table below provides connection and CV guidance for the most commonly used decoders. Always refer to your decoder's own documentation for full details and the most up-to-date CV information.</p>
+    </div>
+
+    <table class="decoder-table">
+      <thead>
+        <tr>
+          <th>Decoder</th>
+          <th>Connection pads</th>
+          <th>CV to set</th>
+          <th>Recommended value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ZIMO MX6xx / MX8xx</strong></td>
+          <td>KOND+ / KOND−</td>
+          <td>CV 131</td>
+          <td>200–255</td>
+          <td>Higher value = longer buffer draw time. Start at 200 and adjust.</td>
+        </tr>
+        <tr>
+          <td><strong>ESU LokSound 5</strong></td>
+          <td>C+ / C−</td>
+          <td>CV 113</td>
+          <td>100–200</td>
+          <td>Value in 10ms increments. 150 (= 1.5 seconds) is a good starting point.</td>
+        </tr>
+        <tr>
+          <td><strong>ESU LokPilot 5</strong></td>
+          <td>C+ / C−</td>
+          <td>CV 113</td>
+          <td>100–200</td>
+          <td>Same as LokSound 5.</td>
+        </tr>
+        <tr>
+          <td><strong>Doehler &amp; Haass (D&amp;H)</strong></td>
+          <td>+ and − pads on decoder body</td>
+          <td>Not required</td>
+          <td>—</td>
+          <td>Connect directly to the labelled pads. No CV adjustment needed.</td>
+        </tr>
+        <tr>
+          <td><strong>TCS (Train Control Systems)</strong></td>
+          <td>KA+ / KA−</td>
+          <td>Not required</td>
+          <td>—</td>
+          <td>Plug-and-play keep-alive pads. No CV required.</td>
+        </tr>
+        <tr>
+          <td><strong>Digitrax SDxxx series</strong></td>
+          <td>Internal DC bus pads</td>
+          <td>Not required</td>
+          <td>—</td>
+          <td>Connect to the internal rectified DC supply pads. Consult decoder documentation for pad location.</td>
+        </tr>
+        <tr>
+          <td><strong>NCE</strong></td>
+          <td>Internal DC supply pads</td>
+          <td>Not required</td>
+          <td>—</td>
+          <td>Connect to rectified DC output. Consult decoder documentation.</td>
+        </tr>
+        <tr>
+          <td><strong>Lenz Silver / Gold</strong></td>
+          <td>C+ / C−</td>
+          <td>CV 113</td>
+          <td>50–150</td>
+          <td>Consult current Lenz documentation for your specific decoder version.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout note">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">Decoder Programmability</div>
+        The NXT StayOn's hardware soft-start circuit (TPS22810) limits inrush current when the capacitors recharge from flat. This prevents your DCC booster from detecting a false short circuit and shutting down, and ensures your decoder remains fully programmable on the programming track at all times — even with the NXT StayOn connected.
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">My decoder is not in the table above</div>
+        If your decoder is not listed, look in your decoder manual for any of the following terms: keep-alive, stay-alive, capacitor buffer, energy storage, or Kondensator. Connect the NXT StayOn + to the positive terminal and − to the ground terminal of whichever connection the manual describes. If in doubt, contact NXT Level Technology or the decoder manufacturer for guidance.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 07 TROUBLESHOOTING ── -->
+  <section class="section" id="troubleshoot">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <div>
+        <div class="section-title">Troubleshooting</div>
+        <div class="section-sub">Solutions to common installation issues</div>
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        My booster shuts down when I place the locomotive on the track
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        This happens when discharged capacitors draw a high inrush current as they charge up rapidly from the track supply. The NXT StayOn includes a hardware soft-start circuit specifically to limit this current and prevent exactly this problem. If you are still experiencing booster shutdowns, try placing the locomotive briefly on an isolated programming track first — this allows the capacitors to charge slowly through the programming track's current-limited output before the loco is transferred to the main line. Also check that your booster's short-circuit sensitivity is not set unusually high.
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        The locomotive still stalls on turnout frogs after installation
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        First check that all solder joints are clean and solid — a cold or dry joint is the most common cause. Next, verify that your decoder's buffer CV (where applicable — see Section 6) is set to a sufficiently high value. If the problem persists, consider moving to a higher-capacitance configuration — see Section 5. Also ensure that your locomotive's wheel pickups are clean and making reliable electrical contact with the rail, as the NXT StayOn can only store the energy it receives; if pickup is very poor, there may not be enough time to recharge between interruptions.
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        The locomotive runs erratically or lights flicker after installation
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        Erratic running or flickering immediately after installation almost always indicates reversed polarity. Switch off track power immediately, remove the module, and carefully check your wiring against your decoder's documentation. Reconnect with the correct polarity — + to + and − to −. If erratic behaviour continues with confirmed correct polarity, check that no wire is contacting the locomotive chassis, motor casing, or any other metal part inside the body.
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        I cannot program my decoder on the programming track after fitting the NXT StayOn
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        The NXT StayOn's soft-start circuit is designed to prevent this problem, and in normal use it should not occur. If you are having difficulty programming, first ensure your programming track is correctly isolated from the main line. Some DCC command stations require a slightly higher programming track current output when a keep-alive module is fitted — if your system has an adjustable programming track current setting, try increasing it. If problems persist, contact your DCC system manufacturer for advice specific to your equipment.
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        The module feels warm after running
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        A slight warmth is entirely normal during operation. The soft-start IC dissipates a small amount of energy during each capacitor recharge cycle, and this is expected behaviour. However, if the module becomes too hot to touch comfortably, switch off track power immediately and investigate. Check for reversed polarity, a short circuit between the module and any metal part of the locomotive, or a track voltage exceeding the 20V DC maximum rating.
+      </div>
+    </div>
+
+    <div class="trouble-item">
+      <div class="trouble-q">
+        I have cut the board but the capacitance seems lower than expected
+        <svg class="trouble-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="trouble-a">
+        Check that the cut was made at exactly the right position — between the correct capacitor pairs as listed in Section 5. A cut made even slightly off position may remove additional capacitors or damage a pad. Also verify that all remaining capacitors are intact and that the cut edge is clean with no solder bridges or cracked pads. If a capacitor was damaged during cutting, the actual capacitance will be lower than stated. If uncertain, contact NXT Level Technology with a description of where the cut was made.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 08 WARRANTY ── -->
+  <section class="section" id="warranty">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <div>
+        <div class="section-title">Warranty &amp; Support</div>
+        <div class="section-sub">Your rights and how to reach us</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px;">
+      <h3>Warranty Terms</h3>
+      <p>NXT Level Technology voluntarily provides a <strong>2-year warranty</strong> from the date of purchase by the original customer, for a maximum of 3 years from the end of series production of the product.</p>
+      <p>This warranty covers defects in materials and workmanship that are demonstrably attributable to faulty materials or manufacturing errors. We reserve the right to repair, replace, or refund the purchase price at our discretion. No further claims beyond this are accepted.</p>
+      <p>This warranty is valid only when the module has been installed and used strictly in accordance with this manual. The warranty becomes void under any of the following circumstances:</p>
+      <p>· Modification of the circuit or components &nbsp;·&nbsp; Attempted self-repair &nbsp;·&nbsp; Incorrect operation &nbsp;·&nbsp; Reversed polarity connection &nbsp;·&nbsp; Damage caused by negligent treatment or misuse &nbsp;·&nbsp; Use outside the intended application &nbsp;·&nbsp; Track voltage exceeding 20V DC</p>
+      <p>This warranty does not affect your statutory consumer rights under South African law (Consumer Protection Act 68 of 2008).</p>
+    </div>
+
+    <div class="contact-block">
+      <h3>Contact &amp; Support</h3>
+      <div class="placeholder" style="background: rgba(245,124,0,0.15); border-color: rgba(245,124,0,0.5); color: rgba(255,255,255,0.7);">Add contact details here: email, website, telephone, and postal address.</div>
+      <p style="font-size:13px; color: rgba(255,255,255,0.55); margin-top: 12px;">When contacting support, please have the following ready: product name and version (StayOn-H0 or StayOn-N), your decoder brand and model, your DCC system brand and model, and a brief description of the issue. This will help us assist you as quickly as possible.</p>
+    </div>
+
+    <div class="card">
+      <h3>Technical Changes</h3>
+      <p>NXT Level Technology reserves the right to make technical changes and improvements to its products without prior notice. Specifications stated in this manual were correct at the time of publication. The most current version of this manual is always available by scanning the QR code on your product.</p>
+      <p style="margin-top: 10px; font-size: 12px; color: var(--muted);">© 2026 NXT Level Technology &nbsp;·&nbsp; Manual Version 1.0 &nbsp;·&nbsp; All rights reserved. No part of this document may be reproduced without the written consent of NXT Level Technology.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">N<span>X</span>T</div>
+  <div class="footer-name">NXT Level Technology</div>
+  <div style="font-size:12px; color: rgba(255,255,255,0.35); margin-top: 4px;">South Africa &nbsp;·&nbsp; Made with pride</div>
+  <div class="footer-meta">
+    NXT StayOn-H0 / StayOn-N
+    <span class="footer-dot">·</span>
+    Installation Manual v1.0
+    <span class="footer-dot">·</span>
+    © 2026 NXT Level Technology
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Accordion troubleshoot
+  document.querySelectorAll('.trouble-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.trouble-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
