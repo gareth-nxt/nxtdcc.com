@@ -85,6 +85,7 @@ header {
   font-size: 22px;
   letter-spacing: -0.03em;
   color: var(--white);
+  font-variant-numeric: slashed-zero;
 }
 
 .logo-nxt .x { color: var(--blue); }
@@ -328,6 +329,8 @@ nav {
   gap: 16px;
   min-width: 220px;
   transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .hero-card:hover {
@@ -362,6 +365,7 @@ nav {
   font-size: 18px;
   color: var(--white);
   letter-spacing: -0.01em;
+  font-variant-numeric: slashed-zero;
 }
 
 .hero-card-cap {
@@ -522,6 +526,7 @@ nav {
   font-size: 32px;
   color: var(--white);
   letter-spacing: -0.03em;
+  font-variant-numeric: slashed-zero;
 }
 
 .product-name span { color: var(--blue); }
@@ -867,30 +872,30 @@ footer {
     </a>
   </div>
   <div class="hero-cards">
-    <div class="hero-card">
+    <a class="hero-card" href="#products">
       <div class="hero-card-icon">🚂</div>
       <div>
         <div class="hero-card-label">H0 Scale</div>
         <div class="hero-card-name">StayOn-H0</div>
         <div class="hero-card-cap">Up to 2,300 µF</div>
       </div>
-    </div>
-    <div class="hero-card">
+    </a>
+    <a class="hero-card" href="#products">
       <div class="hero-card-icon">🚃</div>
       <div>
         <div class="hero-card-label">N Scale</div>
         <div class="hero-card-name">StayOn-N</div>
         <div class="hero-card-cap">Up to 900 µF</div>
       </div>
-    </div>
-    <div class="hero-card">
+    </a>
+    <a class="hero-card" href="#features">
       <div class="hero-card-icon">⚡</div>
       <div>
         <div class="hero-card-label">Voltage Rating</div>
         <div class="hero-card-name">20V DC</div>
         <div class="hero-card-cap">All DCC systems</div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
