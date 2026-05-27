@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NXT StayOn — Installation Manual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   :root {
     --blue:        #0A5FE8;
@@ -61,7 +61,7 @@
   }
 
   .logo-wordmark {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 800;
     font-size: 26px;
     color: var(--white);
@@ -113,7 +113,7 @@
   }
 
   .hero h1 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(32px, 7vw, 52px);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -215,7 +215,7 @@
   }
 
   .section-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 800;
     font-size: 11px;
     color: var(--blue);
@@ -229,7 +229,7 @@
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--text);
@@ -273,7 +273,7 @@
     background: var(--dark);
     color: white;
     padding: 16px 22px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     font-size: 17px;
     letter-spacing: -0.01em;
@@ -282,13 +282,6 @@
 
   .spec-card-head span { color: var(--orange); }
 
-  .h0-zero {
-    font-family: 'DM Mono', monospace;
-    font-weight: 500;
-    font-variant-numeric: slashed-zero;
-    font-size: 1em;
-    line-height: 1;
-  }
 
   .spec-row {
     display: flex;
@@ -358,7 +351,7 @@
 
   /* ── CONFIG TABLES ── */
   .config-section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: var(--text);
@@ -390,7 +383,7 @@
     color: white;
     padding: 11px 16px;
     text-align: left;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.07em;
@@ -440,7 +433,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     font-size: 14px;
     flex-shrink: 0;
@@ -531,7 +524,7 @@
   }
 
   .card h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 14px;
@@ -558,7 +551,7 @@
   }
 
   .contact-block h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 16px;
@@ -626,7 +619,7 @@
   }
 
   .footer-logo {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 24px;
     font-weight: 800;
     color: white;
@@ -685,9 +678,9 @@
 <div class="hero">
   <div class="hero-eyebrow">DCC Keep-Alive Module · Installation Manual</div>
   <h1>NXT <span>StayOn</span></h1>
-  <p class="hero-desc">Smooth, uninterrupted running on any DCC layout — in H<span class="h0-zero">0</span> and N scale.</p>
+  <p class="hero-desc">Smooth, uninterrupted running on any DCC layout — in H0 and N scale.</p>
   <div class="badges">
-    <span class="badge primary">StayOn-H<span class="h0-zero">0</span></span>
+    <span class="badge primary">StayOn-H0</span>
     <span class="badge primary">StayOn-N</span>
     <span class="badge">Made in South Africa</span>
     <span class="badge">All DCC Systems</span>
@@ -724,8 +717,8 @@
     <div class="prose">
       <p>The <strong>NXT StayOn</strong> is a high-quality DCC keep-alive module designed to eliminate the frustrating stalls that occur when a locomotive loses contact with the track — on dirty rail, over unpowered turnout frogs, or across any brief interruption in power.</p>
       <p>It works by storing energy in a bank of capacitors and releasing it instantly to keep your locomotive's decoder and motor running through those interruptions. The result is smooth, uninterrupted operation on any DCC layout, regardless of track or turnout condition.</p>
-      <p>The NXT StayOn is available in two versions: <strong>StayOn-H<span class="h0-zero">0</span></strong> for H<span class="h0-zero">0</span> scale and <strong>StayOn-N</strong> for N scale. Both feature a hardware soft-start circuit using the Texas Instruments TPS22810 load switch IC, which limits inrush current during capacitor charging and prevents booster shutdowns. Both versions maintain full decoder programmability at all times.</p>
-      <p>Each board can be configured for the space available inside your locomotive — by populating one or both sides with capacitors, and by cutting the board to a shorter length at designated cut points. This flexibility makes the NXT StayOn suitable for the smallest N scale tank engines as well as large H<span class="h0-zero">0</span> locomotives with generous body space.</p>
+      <p>The NXT StayOn is available in two versions: <strong>StayOn-H0</strong> for H0 scale and <strong>StayOn-N</strong> for N scale. Both feature a hardware soft-start circuit using the Texas Instruments TPS22810 load switch IC, which limits inrush current during capacitor charging and prevents booster shutdowns. Both versions maintain full decoder programmability at all times.</p>
+      <p>Each board can be configured for the space available inside your locomotive — by populating one or both sides with capacitors, and by cutting the board to a shorter length at designated cut points. This flexibility makes the NXT StayOn suitable for the smallest N scale tank engines as well as large H0 locomotives with generous body space.</p>
       <p>Designed and assembled in South Africa to the highest standards, the NXT StayOn delivers professional-grade performance at a price that makes sense for every modeller.</p>
     </div>
 
@@ -752,7 +745,7 @@
 
     <div class="spec-grid">
       <div class="spec-card">
-        <div class="spec-card-head">StayOn-<span>H<span class="h0-zero">0</span></span></div>
+        <div class="spec-card-head">StayOn-<span>H0</span></div>
         <div class="spec-row"><span class="spec-key">Max track voltage</span><span class="spec-val">20V DC</span></div>
         <div class="spec-row"><span class="spec-key">Capacitance — full board</span><span class="spec-val">2,300 µF</span></div>
         <div class="spec-row"><span class="spec-key">Capacitance — top side only</span><span class="spec-val">1,100 µF</span></div>
@@ -959,7 +952,7 @@
       </div>
     </div>
 
-    <div class="config-section-title">StayOn-H<span class="h0-zero">0</span> — All Configurations</div>
+    <div class="config-section-title">StayOn-H0 — All Configurations</div>
 
     <table>
       <thead>
@@ -1284,7 +1277,7 @@
     <div class="contact-block">
       <h3>Contact &amp; Support</h3>
       <div class="placeholder" style="background: rgba(245,124,0,0.15); border-color: rgba(245,124,0,0.5); color: rgba(255,255,255,0.7);">Add contact details here: email, website, telephone, and postal address.</div>
-      <p style="font-size:13px; color: rgba(255,255,255,0.55); margin-top: 12px;">When contacting support, please have the following ready: product name and version (StayOn-H<span class="h0-zero">0</span> or StayOn-N), your decoder brand and model, your DCC system brand and model, and a brief description of the issue. This will help us assist you as quickly as possible.</p>
+      <p style="font-size:13px; color: rgba(255,255,255,0.55); margin-top: 12px;">When contacting support, please have the following ready: product name and version (StayOn-H0 or StayOn-N), your decoder brand and model, your DCC system brand and model, and a brief description of the issue. This will help us assist you as quickly as possible.</p>
     </div>
 
     <div class="card">
@@ -1303,7 +1296,7 @@
   <div class="footer-name">NXT Level Technology</div>
   <div style="font-size:12px; color: rgba(255,255,255,0.35); margin-top: 4px;">South Africa &nbsp;·&nbsp; Made with pride</div>
   <div class="footer-meta">
-    NXT StayOn-H<span class="h0-zero">0</span> / StayOn-N
+    NXT StayOn-H0 / StayOn-N
     <span class="footer-dot">·</span>
     Installation Manual v1.0
     <span class="footer-dot">·</span>
