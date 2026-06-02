@@ -15,16 +15,16 @@
   --blue-light: #E8F0FD;
   --orange:     #F57C00;
   --orange-dim: #C46200;
-  --dark:       #080C14;
-  --dark-2:     #0D1420;
-  --dark-3:     #131B2C;
-  --dark-4:     #1A2440;
-  --mid:        #243050;
-  --text:       #E8EDF8;
-  --text-dim:   #8A9BBF;
-  --text-muted: #4A5878;
-  --border:     rgba(255,255,255,0.08);
-  --border-2:   rgba(255,255,255,0.04);
+  --dark:       #11161F;
+  --dark-2:     #181F2B;
+  --dark-3:     #1F2838;
+  --dark-4:     #2A344E;
+  --mid:        #38456A;
+  --text:       #F0F4FC;
+  --text-dim:   #C4CEE3;
+  --text-muted: #9DACCB;
+  --border:     rgba(255,255,255,0.12);
+  --border-2:   rgba(255,255,255,0.06);
   --white:      #FFFFFF;
   --radius:     10px;
   --radius-lg:  18px;
@@ -242,7 +242,7 @@ nav {
 
 .hero-sub {
   font-size: clamp(15px, 2.5vw, 19px);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   max-width: 560px;
   margin: 28px auto 0;
@@ -409,7 +409,7 @@ nav {
 
 .section-body {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.75;
   max-width: 600px;
@@ -467,7 +467,7 @@ nav {
 
 .feature-body {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.7;
 }
@@ -537,7 +537,7 @@ nav {
   font-size: 13px;
   color: var(--text-muted);
   margin-top: 6px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .product-specs {
@@ -686,7 +686,7 @@ nav {
 
 .manual-body {
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.7;
   max-width: 500px;
@@ -895,10 +895,24 @@ footer {
 }
 
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
-  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.pricing-grid + .pricing-grid { margin-top: 16px; }
+
+.pricing-group-label {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 40px;
 }
 
 .price-card {
@@ -908,6 +922,8 @@ footer {
   padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
+  flex: 1 1 300px;
+  max-width: 340px;
   gap: 0;
   transition: border-color 0.25s, transform 0.25s;
   position: relative;
@@ -958,9 +974,10 @@ footer {
 }
 
 .price-cap {
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 13px;
+  color: var(--text-dim);
   margin-bottom: 20px;
+  min-height: 36px;
 }
 
 .price-tag {
@@ -988,7 +1005,7 @@ footer {
 }
 
 .price-vat {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 20px;
 }
@@ -1000,9 +1017,9 @@ footer {
 }
 
 .price-detail {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.6;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.65;
   margin-bottom: 4px;
 }
 
@@ -1014,8 +1031,8 @@ footer {
 .price-order-note {
   margin-top: 36px;
   text-align: center;
-  font-size: 13px;
-  color: var(--text-muted);
+  font-size: 14px;
+  color: var(--text-dim);
   line-height: 1.7;
 }
 
@@ -1056,7 +1073,7 @@ footer {
 
 .contact-body {
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.75;
   max-width: 420px;
@@ -1126,11 +1143,11 @@ footer {
   .footer-copy { text-align: center; }
   .footer-links { justify-content: center; }
   .contact-inner { grid-template-columns: 1fr; gap: 32px; }
-  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .price-card { flex-basis: calc(50% - 8px); max-width: none; }
 }
 
 @media (max-width: 480px) {
-  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card { flex-basis: 100%; max-width: 420px; }
 }
 </style>
 </head>
@@ -1414,6 +1431,7 @@ footer {
   <div class="section-label">Pricing</div>
   <h2 class="section-title">Choose your configuration</h2>
   <p class="section-body">All prices include 15% South African VAT. Ordered direct — delivery within days, anywhere in SA. Full, Slim, and two sizes for N scale, all ready to install straight out of the box.</p>
+  <div class="pricing-group-label">H0 Scale · 1:87</div>
   <div class="pricing-grid">
 
     <!-- H0 Full -->
@@ -1464,6 +1482,11 @@ footer {
       <div class="price-detail"><strong>Best for:</strong> Smaller H0 locos, tight fits</div>
     </div>
 
+  </div>
+
+  <div class="pricing-group-label">N Scale · 1:160</div>
+  <div class="pricing-grid">
+
     <!-- N Full -->
     <div class="price-card">
       <div class="price-scale">N Scale · 1:160</div>
@@ -1498,6 +1521,8 @@ footer {
 
   </div>
   <p class="price-order-note">
+    <strong style="color:var(--text);">Delivery: a flat R50 (incl. VAT) anywhere in South Africa</strong><br>
+    via The Courier Guy — Locker-to-Locker service.<br><br>
     All modules are professionally assembled and tested before dispatch.<br>
     To order, email <a href="mailto:support@nxtdcc.com">support@nxtdcc.com</a> or
     WhatsApp <a href="https://wa.me/27827707800">+27 82 770 7800</a> with the SKU(s) you need.
@@ -1548,7 +1573,7 @@ footer {
     <img src="images/sa-flag.png" alt="South African flag" class="sa-flag-img">
     <div class="section-label" style="text-align:center;">Origin</div>
     <h2 class="section-title" style="font-size: clamp(22px,4vw,32px);">Designed &amp; assembled<br>in South Africa</h2>
-    <p class="section-body" style="margin: 14px auto 0; text-align:center;">NXT Level Technology is a South African company committed to producing world-class DCC accessories. Starting in the SA market and expanding to the UK and Europe — because good engineering knows no borders.</p>
+    <p class="section-body" style="margin: 14px auto 0; text-align:center;">NXT Level Technology is a South African company committed to producing world-class DCC accessories.</p>
   </div>
 </div>
 

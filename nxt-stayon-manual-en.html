@@ -58,6 +58,7 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    text-decoration: none;
   }
 
   .logo-wordmark {
@@ -191,6 +192,24 @@
     color: var(--blue);
     border-bottom-color: var(--blue);
   }
+
+  .nav-home {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    border-right: 1px solid var(--border);
+    transition: color 0.15s, border-color 0.15s;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-home:hover { border-bottom-color: var(--blue); }
 
   /* ── MAIN ── */
   main {
@@ -625,6 +644,8 @@
     color: white;
     letter-spacing: -0.02em;
     margin-bottom: 8px;
+    text-decoration: none;
+    display: inline-block;
   }
 
   .footer-logo span { color: var(--blue); }
@@ -646,6 +667,25 @@
     display: inline-block;
     margin: 0 8px;
     opacity: 0.4;
+  }
+
+  .footer-home {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 22px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .footer-home:hover {
+    background: var(--blue);
+    border-color: var(--blue);
   }
 
   /* ── PRODUCT IMAGES ── */
@@ -716,10 +756,10 @@
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="logo">
+    <a class="logo" href="index.html">
       <div class="logo-wordmark">N<span>X</span>T</div>
       <div class="logo-sub">Level Technology · StayOn Series</div>
-    </div>
+    </a>
     <div class="header-doc">
       <div class="header-doc-title">Installation Manual</div>
       <div class="header-doc-sub">Version 1.0 &nbsp;·&nbsp; 2026</div>
@@ -748,6 +788,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
+    <a class="nav-home" href="index.html">← Home</a>
     <a class="nav-link" href="#overview">Overview</a>
     <a class="nav-link" href="#specs">Specifications</a>
     <a class="nav-link" href="#safety">Safety</a>
@@ -942,7 +983,7 @@
         <div class="step-num">4</div>
         <div class="step-body">
           <div class="step-title">Tin the pads and your wire</div>
-          <p>Apply a small amount of solder to each pad and to the stripped ends of your connecting wire before joining them. This technique — known as tinning — ensures a clean, reliable solder joint and makes the final connection quick and neat. Keep the iron on each pad for no more than two to three seconds.</p>
+          <p>Apply a small amount of solder to each pad and to the stripped ends of your connecting wire before joining them. This technique — known as tinning — ensures a clean, reliable solder joint and makes the final connection quick and neat. Keep the iron on each pad for no more than two to three seconds. It is advisable to apply a little liquid flux to the pads and wire beforehand — this helps the solder flow and gives a stronger, cleaner bond.</p>
         </div>
       </div>
 
@@ -950,7 +991,7 @@
         <div class="step-num">5</div>
         <div class="step-body">
           <div class="step-title">Solder the wires to the StayOn pads</div>
-          <p>Connect <strong>+ to +</strong> and <strong>− to −</strong>. Double-check polarity before touching the iron to the joint. Keep wires short — 30 to 50mm is usually sufficient. A clean joint should be shiny and smooth; a dull or grainy joint indicates a cold solder — reheat and re-flow if necessary.</p>
+          <p>Connect <strong>+ to +</strong> and <strong>− to −</strong>. Double-check polarity before touching the iron to the joint. Keep wires short — 30 to 50mm is usually sufficient. A clean joint should be shiny and smooth; a dull or grainy joint indicates a cold solder — reheat and re-flow if necessary. A little liquid flux on the joint first is advisable — it helps the solder flow and gives a stronger, cleaner bond.</p>
         </div>
       </div>
 
@@ -958,7 +999,7 @@
         <div class="step-num">6</div>
         <div class="step-body">
           <div class="step-title">Solder the other ends to your decoder</div>
-          <p>Connect to the appropriate keep-alive or capacitor pads on your decoder, matching polarity carefully. See Section 6 for decoder-specific pad locations. Check polarity one final time before applying heat. If your decoder does not have dedicated pads, connect to the internal DC supply — positive to positive, ground to ground.</p>
+          <p>Connect to the appropriate keep-alive or capacitor pads on your decoder, matching polarity carefully. See Section 6 for decoder-specific pad locations. Check polarity one final time before applying heat. If your decoder does not have dedicated pads, connect to the internal DC supply — positive to positive, ground to ground. As with the StayOn pads, a little liquid flux first is advisable — it helps the solder flow and gives a stronger, cleaner bond.</p>
         </div>
       </div>
 
@@ -1296,7 +1337,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">N<span>X</span>T</div>
+  <a class="footer-logo" href="index.html">N<span>X</span>T</a>
   <div class="footer-name">NXT Level Technology</div>
   <div style="font-size:12px; color: rgba(255,255,255,0.35); margin-top: 4px;">South Africa &nbsp;·&nbsp; Made with pride</div>
   <div class="footer-meta">
@@ -1306,6 +1347,7 @@
     <span class="footer-dot">·</span>
     © 2026 NXT Level Technology
   </div>
+  <div><a class="footer-home" href="index.html">← Back to Home</a></div>
 </footer>
 
 <script>
