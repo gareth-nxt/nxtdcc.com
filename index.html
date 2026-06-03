@@ -20,9 +20,9 @@
   --dark-3:     #1F2838;
   --dark-4:     #2A344E;
   --mid:        #38456A;
-  --text:       #F6F9FE;
-  --text-dim:   #D6DEEF;
-  --text-muted: #B2BDD8;
+  --text:       #F0F4FC;
+  --text-dim:   #C4CEE3;
+  --text-muted: #9DACCB;
   --border:     rgba(255,255,255,0.12);
   --border-2:   rgba(255,255,255,0.06);
   --white:      #FFFFFF;
@@ -974,10 +974,10 @@ footer {
 }
 
 .price-cap {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 18px;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+  min-height: 36px;
 }
 
 .price-tag {
@@ -1006,7 +1006,7 @@ footer {
 
 .price-vat {
   font-size: 12px;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
@@ -1017,8 +1017,8 @@ footer {
 }
 
 .price-detail {
-  font-size: 14px;
-  color: var(--text);
+  font-size: 13px;
+  color: var(--text-dim);
   line-height: 1.65;
   margin-bottom: 4px;
 }
@@ -1028,74 +1028,20 @@ footer {
   font-weight: 500;
 }
 
-.order-cta {
-  max-width: 780px;
-  margin: 52px auto 0;
+.price-order-note {
+  margin-top: 36px;
   text-align: center;
-  background: linear-gradient(145deg, var(--dark-3), var(--dark-4));
-  border: 1px solid rgba(10,95,232,0.45);
-  border-radius: var(--radius-xl);
-  padding: clamp(34px, 5vw, 52px);
-}
-
-.order-cta-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 800;
-  font-size: clamp(26px, 4vw, 38px);
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.order-cta-text {
-  font-size: 17px;
+  font-size: 14px;
   color: var(--text-dim);
   line-height: 1.7;
-  max-width: 580px;
-  margin: 0 auto 30px;
 }
 
-.order-cta-text strong { color: var(--text); }
-
-.order-cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.order-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 17px;
-  font-weight: 600;
-  padding: 17px 30px;
-  border-radius: 32px;
+.price-order-note a {
+  color: var(--blue);
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
 }
 
-.order-btn.email {
-  background: var(--blue);
-  color: #fff;
-  box-shadow: 0 0 30px var(--blue-glow);
-}
-
-.order-btn.email:hover { background: var(--blue-dim); transform: translateY(-2px); }
-
-.order-btn.whatsapp {
-  background: #25D366;
-  color: #07331A;
-}
-
-.order-btn.whatsapp:hover { background: #1FBE5A; transform: translateY(-2px); }
-
-.order-cta-note {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-top: 22px;
-}
+.price-order-note a:hover { text-decoration: underline; }
 
 /* ── CONTACT ── */
 .contact-section {
@@ -1294,7 +1240,7 @@ footer {
       <div class="feature-num">02</div>
       <span class="feature-icon">✂️</span>
       <div class="feature-title">Five Configurations, Ready to Fit</div>
-      <p class="feature-body">The NXT StayOn is available in five pre-assembled configurations — two H0 and three N scale. Full dual-sided boards for maximum capacity, or slim single-sided boards for height-restricted installations. Choose the one that fits your locomotive.</p>
+      <p class="feature-body">The NXT StayOn is available in five pre-assembled configurations — three H0 and two N scale. Full dual-sided boards for maximum runtime, slim low-profile boards for height-restricted spaces, and a compact short-footprint board — all ready to fit. Choose the one that suits your locomotive.</p>
     </div>
     <div class="feature">
       <div class="feature-num">03</div>
@@ -1364,7 +1310,7 @@ footer {
     <div class="product-card">
       <div class="product-media">
         <img src="images/stayon-h0.png" loading="lazy" width="900" height="951"
-             alt="NXT StayOn-H0 board, top view showing the two-column capacitor layout and cut positions">
+             alt="NXT StayOn-H0 board, top view showing the two-column capacitor layout">
       </div>
       <div class="product-card-head">
         <div class="product-scale">H0 Scale · 1:87</div>
@@ -1377,20 +1323,20 @@ footer {
           <span class="spec-val highlight">2,300 µF</span>
         </div>
         <div class="spec-item">
-          <span class="spec-key">Capacitance (Slim 1,100)</span>
+          <span class="spec-key">Capacitance (Slim)</span>
           <span class="spec-val">1,100 µF</span>
         </div>
         <div class="spec-item">
-          <span class="spec-key">Capacitance (Slim 500)</span>
-          <span class="spec-val">500 µF</span>
+          <span class="spec-key">Capacitance (Compact)</span>
+          <span class="spec-val">1,100 µF</span>
         </div>
         <div class="spec-item">
           <span class="spec-key">Board size</span>
-          <span class="spec-val">37.0 × 14.0 mm</span>
+          <span class="spec-val">37 × 14 mm · Compact 18.6 × 14</span>
         </div>
         <div class="spec-item">
-          <span class="spec-key">Height (Full / Slim)</span>
-          <span class="spec-val">5.0 mm / 3.0 mm</span>
+          <span class="spec-key">Height (Full / Slim / Compact)</span>
+          <span class="spec-val">5.0 / 3.0 / 5.0 mm</span>
         </div>
         <div class="spec-item">
           <span class="spec-key">Max voltage</span>
@@ -1484,7 +1430,7 @@ footer {
 <section class="pricing-section reveal" id="pricing">
   <div class="section-label">Pricing</div>
   <h2 class="section-title">Choose your configuration</h2>
-  <p class="section-body">All prices include 15% South African VAT. Ordered direct — delivery within days, anywhere in SA. Full, Slim, and two sizes for N scale, all ready to install straight out of the box.</p>
+  <p class="section-body">All prices include 15% South African VAT. Ordered direct — delivery within days, anywhere in SA. Three H0 options and two for N scale, all ready to install straight out of the box.</p>
   <div class="pricing-group-label">H0 Scale · 1:87</div>
   <div class="pricing-grid">
 
@@ -1492,14 +1438,15 @@ footer {
     <div class="price-card flagship">
       <div class="price-scale">H0 Scale · 1:87</div>
       <div class="price-name">StayOn-H0 Full</div>
-      <div class="price-cap">2,300 µF</div>
+      <div class="price-cap">2,300 µF · Both sides · 5.0 mm tall</div>
       <div class="price-tag">
         <div class="price-currency">R</div>
         <div class="price-amount">699</div>
       </div>
       <div class="price-vat">incl. VAT</div>
       <div class="price-divider"></div>
-      <div class="price-detail"><strong>Board size:</strong> 37 mm long × 14 mm wide × 5 mm high</div>
+      <div class="price-detail"><strong>Board:</strong> 37.0 × 14.0 mm</div>
+      <div class="price-detail"><strong>Caps:</strong> 23 × 100 µF, both faces</div>
       <div class="price-detail"><strong>Best for:</strong> Large H0 locos, maximum runtime</div>
     </div>
 
@@ -1507,30 +1454,32 @@ footer {
     <div class="price-card">
       <div class="price-scale">H0 Scale · 1:87</div>
       <div class="price-name">StayOn-H0 Slim</div>
-      <div class="price-cap">1,100 µF</div>
+      <div class="price-cap">1,100 µF · Top side only · 3.0 mm tall</div>
       <div class="price-tag">
         <div class="price-currency">R</div>
         <div class="price-amount">419</div>
       </div>
       <div class="price-vat">incl. VAT</div>
       <div class="price-divider"></div>
-      <div class="price-detail"><strong>Board size:</strong> 37 mm long × 14 mm wide × 3 mm high</div>
+      <div class="price-detail"><strong>Board:</strong> 37.0 × 14.0 mm</div>
+      <div class="price-detail"><strong>Caps:</strong> 11 × 100 µF, top face only</div>
       <div class="price-detail"><strong>Best for:</strong> Height-restricted H0 locos</div>
     </div>
 
-    <!-- H0 Slim 500 -->
+    <!-- H0 Compact 1,100 -->
     <div class="price-card">
       <div class="price-scale">H0 Scale · 1:87</div>
       <div class="price-name">StayOn-H0 Compact</div>
-      <div class="price-cap">500 µF</div>
+      <div class="price-cap">1,100 µF · Both sides · 5.0 mm tall</div>
       <div class="price-tag">
         <div class="price-currency">R</div>
-        <div class="price-amount">259</div>
+        <div class="price-amount">419</div>
       </div>
       <div class="price-vat">incl. VAT</div>
       <div class="price-divider"></div>
-      <div class="price-detail"><strong>Board size:</strong> 18 mm long × 14 mm wide × 3 mm high</div>
-      <div class="price-detail"><strong>Best for:</strong> Smaller H0 locos, tight fits</div>
+      <div class="price-detail"><strong>Board:</strong> 18.6 × 14.0 mm</div>
+      <div class="price-detail"><strong>Caps:</strong> 11 × 100 µF, both faces</div>
+      <div class="price-detail"><strong>Best for:</strong> Short installs — the full 1,100 µF in a shorter board</div>
     </div>
 
   </div>
@@ -1542,14 +1491,15 @@ footer {
     <div class="price-card">
       <div class="price-scale">N Scale · 1:160</div>
       <div class="price-name">StayOn-N Full</div>
-      <div class="price-cap">900 µF</div>
+      <div class="price-cap">900 µF · Both sides · 5.0 mm tall</div>
       <div class="price-tag">
         <div class="price-currency">R</div>
         <div class="price-amount">324</div>
       </div>
       <div class="price-vat">incl. VAT</div>
       <div class="price-divider"></div>
-      <div class="price-detail"><strong>Board size:</strong> 23.5 mm long × 9.5 mm wide × 5 mm high</div>
+      <div class="price-detail"><strong>Board:</strong> 23.5 × 9.5 mm</div>
+      <div class="price-detail"><strong>Caps:</strong> 9 × 100 µF, both faces</div>
       <div class="price-detail"><strong>Best for:</strong> N scale locos, full protection</div>
     </div>
 
@@ -1557,27 +1507,26 @@ footer {
     <div class="price-card">
       <div class="price-scale">N Scale · 1:160</div>
       <div class="price-name">StayOn-N Slim</div>
-      <div class="price-cap">400 µF</div>
+      <div class="price-cap">400 µF · Top side only · 3.0 mm tall</div>
       <div class="price-tag">
         <div class="price-currency">R</div>
         <div class="price-amount">189</div>
       </div>
       <div class="price-vat">incl. VAT</div>
       <div class="price-divider"></div>
-      <div class="price-detail"><strong>Board size:</strong> 23.5 mm long × 9.5 mm wide × 3 mm high</div>
+      <div class="price-detail"><strong>Board:</strong> 23.5 × 9.5 mm</div>
+      <div class="price-detail"><strong>Caps:</strong> 4 × 100 µF, top face only</div>
       <div class="price-detail"><strong>Best for:</strong> Very tight N scale installations</div>
     </div>
 
   </div>
-  <div class="order-cta">
-    <div class="order-cta-title">Ready to order?</div>
-    <p class="order-cta-text">Every module is professionally assembled and tested before dispatch. <strong>Delivery is a flat R50 (incl. VAT) anywhere in South Africa</strong> via The Courier Guy — Locker-to-Locker service.</p>
-    <div class="order-cta-buttons">
-      <a class="order-btn email" href="mailto:support@nxtdcc.com">✉️ Email us to order</a>
-      <a class="order-btn whatsapp" href="https://wa.me/27827707800">💬 WhatsApp +27 82 770 7800</a>
-    </div>
-    <div class="order-cta-note">Just tell us which model(s) you need and we'll take it from there.</div>
-  </div>
+  <p class="price-order-note">
+    <strong style="color:var(--text);">Delivery: a flat R50 (incl. VAT) anywhere in South Africa</strong><br>
+    via The Courier Guy — Locker-to-Locker service.<br><br>
+    All modules are professionally assembled and tested before dispatch.<br>
+    To order, email <a href="mailto:support@nxtdcc.com">support@nxtdcc.com</a> or
+    WhatsApp <a href="https://wa.me/27827707800">+27 82 770 7800</a> with the SKU(s) you need.
+  </p>
 </section>
 
 <div class="divider"></div>
