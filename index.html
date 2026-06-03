@@ -887,6 +887,39 @@ footer {
 
 .product-card:hover .product-media img { transform: translateY(-4px) scale(1.02); }
 
+/* Compact mini-figure inside H0 product card */
+.compact-figure {
+  margin: 4px 24px 0;
+  padding: 16px 18px 12px;
+  background: linear-gradient(160deg, var(--dark-3), var(--dark-2));
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.compact-figure img {
+  height: 96px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.5));
+  flex-shrink: 0;
+}
+.compact-figure-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+.compact-figure-text strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 3px;
+}
+
 /* ── PRICING ── */
 .pricing-section {
   padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 60px);
@@ -1404,6 +1437,13 @@ footer {
         <div class="spec-item">
           <span class="spec-key">Soft-start IC</span>
           <span class="spec-val">TPS22810</span>
+        </div>
+      </div>
+      <div class="compact-figure">
+        <img src="images/stayon-h0-compact-top.png" alt="NXT StayOn-H0 Compact — the shortened 18.6 mm board">
+        <div class="compact-figure-text">
+          <strong>New: H0 Compact</strong>
+          The full 1,100 µF on a shorter 18.6 mm board — for length-restricted installs.
         </div>
       </div>
       <a class="product-cta" href="#pricing">
