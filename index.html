@@ -1224,10 +1224,307 @@ footer {
   letter-spacing: -0.01em;
 }
 
+/* ── PRODUCT CARDS v2 (stacked full-width, per-variant tiles) ── */
+
+.prod-cards-list {
+  margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.prod-card-v2 {
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Card header: board photo + intro */
+.prod-head-v2 {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-4) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.prod-img-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  border-right: 1px solid var(--border);
+  min-height: 180px;
+}
+
+.prod-img-v2 img {
+  display: block;
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 26px rgba(0,0,0,0.55));
+  transition: transform 0.35s ease;
+}
+
+.prod-card-v2:hover .prod-img-v2 img { transform: translateY(-3px) scale(1.02); }
+
+.prod-intro-v2 {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prod-scale-v2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.prod-name-v2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  font-variant-numeric: slashed-zero;
+}
+
+.prod-name-v2 span { color: var(--blue); }
+
+.prod-tagline-v2 {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.prod-variant-pill {
+  display: inline-block;
+  background: rgba(10,95,232,0.1);
+  border: 1px solid rgba(10,95,232,0.25);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+/* Gap-as-divider variant grid */
+.variants-grid-v2 {
+  display: grid;
+  gap: 1px;
+  background: var(--border-2);
+}
+
+.h0-grid { grid-template-columns: repeat(3, 1fr); }
+.n-grid  { grid-template-columns: repeat(2, 1fr); }
+
+/* Individual variant tile */
+.var-tile {
+  background: var(--dark-2);
+  padding: 26px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Variant name badge */
+.var-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.badge-full    { background: rgba(10,95,232,0.15);  color: #82BCFF; border: 1px solid rgba(10,95,232,0.3); }
+.badge-slim    { background: rgba(16,185,129,0.12); color: #34D399; border: 1px solid rgba(16,185,129,0.3); }
+.badge-compact { background: rgba(245,124,0,0.12);  color: #FB923C; border: 1px solid rgba(245,124,0,0.3); }
+
+/* µF hero */
+.var-cap-hero {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1;
+}
+
+.var-cap-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 54px;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  line-height: 0.9;
+  font-variant-numeric: slashed-zero;
+}
+
+.var-cap-unit {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.02em;
+}
+
+/* Board shape SVG: fixed height, auto-width, centred */
+.var-board-svg {
+  display: block;
+  height: 62px;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Dimension pills */
+.var-dims {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.dim-pill {
+  background: var(--dark-3);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  padding: 8px 6px 6px;
+  text-align: center;
+}
+
+.dim-pill-lbl {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.dim-pill-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: slashed-zero;
+}
+
+.dim-pill-unit {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.dim-pill-sub {
+  display: block;
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1;
+}
+
+/* Colour-coded accent states */
+.dp-blue   { border-color: rgba(10,95,232,0.3);   background: rgba(10,95,232,0.06); }
+.dp-blue   .dim-pill-val { color: #82BCFF; }
+.dp-green  { border-color: rgba(16,185,129,0.3);  background: rgba(16,185,129,0.06); }
+.dp-green  .dim-pill-val { color: #34D399; }
+.dp-orange { border-color: rgba(245,124,0,0.3);   background: rgba(245,124,0,0.08); }
+.dp-orange .dim-pill-val { color: #FB923C; }
+
+/* Variant pitch description */
+.var-pitch {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+  flex-grow: 1;
+}
+
+.var-pitch strong {
+  display: block;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* Common specs bar at card bottom */
+.prod-common-v2 {
+  display: flex;
+  border-top: 1px solid var(--border);
+  background: var(--dark-3);
+}
+
+.pcs-item {
+  flex: 1;
+  padding: 14px 20px;
+  border-right: 1px solid var(--border-2);
+  text-align: center;
+}
+
+.pcs-item:last-child { border-right: none; }
+
+.pcs-lbl {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.pcs-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  font-variant-numeric: slashed-zero;
+}
+
+/* CTA at card foot */
+.prod-cta-v2 {
+  display: block;
+  margin: 16px 24px 20px;
+  padding: 13px;
+  background: transparent;
+  border: 1px solid rgba(10,95,232,0.4);
+  border-radius: 30px;
+  text-align: center;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+
+.prod-cta-v2:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav .nav-link { display: none; }
   .products-grid { grid-template-columns: 1fr; }
+  .prod-head-v2 { grid-template-columns: 190px 1fr; }
+  .h0-grid { grid-template-columns: 1fr 1fr; }
   .manual-inner { grid-template-columns: 1fr; }
   .manual-links { flex-direction: row; flex-wrap: wrap; }
   .manual-btn { min-width: 160px; flex: 1; }
@@ -1236,6 +1533,17 @@ footer {
   .footer-links { justify-content: center; }
   .contact-inner { grid-template-columns: 1fr; gap: 32px; }
   .price-card { flex-basis: calc(50% - 8px); max-width: none; }
+}
+
+@media (max-width: 560px) {
+  .prod-head-v2 { grid-template-columns: 1fr; }
+  .prod-img-v2 { border-right: none; border-bottom: 1px solid var(--border); min-height: 130px; }
+  .prod-img-v2 img { max-height: 110px; }
+  .h0-grid, .n-grid { grid-template-columns: 1fr; }
+  .var-cap-num { font-size: 44px; }
+  .var-cap-unit { font-size: 18px; }
+  .prod-common-v2 { flex-wrap: wrap; }
+  .pcs-item { min-width: 50%; border-bottom: 1px solid var(--border-2); }
 }
 
 @media (max-width: 480px) {
@@ -1396,97 +1704,263 @@ footer {
     <h2 class="section-title">Choose your scale</h2>
     <p class="section-body">Both versions share the same high-quality design and components — sized and configured for the space available in your locomotives.</p>
   </div>
-  <div class="products-grid reveal">
 
-    <!-- H0 CARD -->
-    <div class="product-card">
-      <div class="product-media">
-        <img src="images/stayon-h0.png" loading="lazy" width="900" height="951"
-             alt="NXT StayOn-H0 board, top view showing the two-column capacitor layout">
-      </div>
-      <div class="product-card-head">
-        <div class="product-scale">H0 Scale · 1:87</div>
-        <div class="product-name">Stay<span>On</span>-H0</div>
-        <div class="product-tagline">For H0 scale DCC locomotives</div>
-      </div>
-      <div class="product-specs">
-        <div class="spec-item">
-          <span class="spec-key">Capacitance (Full)</span>
-          <span class="spec-val highlight">2,300 µF</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Capacitance (Slim)</span>
-          <span class="spec-val">1,100 µF</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Capacitance (Compact)</span>
-          <span class="spec-val">1,100 µF</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Board size</span>
-          <span class="spec-val">37 × 14 mm · Compact 18.6 × 14</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Height (Full / Slim / Compact)</span>
-          <span class="spec-val">5.0 / 3.0 / 5.0 mm</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Max voltage</span>
-          <span class="spec-val">20V DC</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Soft-start IC</span>
-          <span class="spec-val">TPS22810</span>
-        </div>
-      </div>
-      <a class="product-cta" href="#pricing">
-        View Pricing &amp; Order →
-      </a>
-    </div>
+  <div class="prod-cards-list reveal">
 
-    <!-- N CARD -->
-    <div class="product-card">
-      <div class="product-media">
-        <img src="images/stayon-n.png" loading="lazy" width="900" height="654"
-             alt="NXT StayOn-N board, top view showing four capacitors and the hardware soft-start IC">
-      </div>
-      <div class="product-card-head">
-        <div class="product-scale">N Scale · 1:160</div>
-        <div class="product-name">Stay<span>On</span>-N</div>
-        <div class="product-tagline">For N scale DCC locomotives</div>
-      </div>
-      <div class="product-specs">
-        <div class="spec-item">
-          <span class="spec-key">Capacitance (Full)</span>
-          <span class="spec-val highlight">900 µF</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Capacitance (Slim 400)</span>
-          <span class="spec-val">400 µF</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Board size</span>
-          <span class="spec-val">23.5 × 9.5 mm</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Height (Full / Slim)</span>
-          <span class="spec-val">5.0 mm / 3.0 mm</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Max voltage</span>
-          <span class="spec-val">20V DC</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-key">Soft-start IC</span>
-          <span class="spec-val">TPS22810</span>
-        </div>
-      </div>
-      <a class="product-cta" href="#pricing">
-        View Pricing &amp; Order →
-      </a>
-    </div>
+    <!-- ══ H0 CARD ══ -->
+    <div class="prod-card-v2">
 
-  </div>
+      <!-- Header -->
+      <div class="prod-head-v2">
+        <div class="prod-img-v2">
+          <img src="images/stayon-h0.png" loading="lazy" width="900" height="951"
+               alt="NXT StayOn-H0 board — two-column capacitor layout, top view">
+        </div>
+        <div class="prod-intro-v2">
+          <div class="prod-scale-v2">H0 Scale · 1:87</div>
+          <div class="prod-name-v2">Stay<span>On</span>-H0</div>
+          <div class="prod-tagline-v2">Three variants — choose the shape that fits your locomotive. All share the same DCC input, same IC, same quality.</div>
+          <span class="prod-variant-pill">3 configurations available</span>
+        </div>
+      </div>
+
+      <!-- Variant tiles -->
+      <div class="variants-grid-v2 h0-grid">
+
+        <!-- H0 Full -->
+        <div class="var-tile">
+          <span class="var-badge badge-full">Full</span>
+          <div class="var-cap-hero">
+            <span class="var-cap-num">2,300</span>
+            <span class="var-cap-unit">µF</span>
+          </div>
+          <!-- Board: 37 × 14 mm at 5 px/mm = 185 × 70 px, dual-sided shadow -->
+          <svg class="var-board-svg" viewBox="0 0 210 82" xmlns="http://www.w3.org/2000/svg">
+            <rect x="15" y="10" width="185" height="70" rx="2" fill="#091409" opacity="0.55"/>
+            <rect x="12" y="7"  width="185" height="70" rx="2" fill="#152815" stroke="#2d5a2d" stroke-width="1.5"/>
+            <rect x="13" y="8"  width="183" height="30" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <rect x="13" y="46" width="183" height="30" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <line x1="12" y1="42" x2="197" y2="42" stroke="#2d5a2d" stroke-width="0.8"/>
+          </svg>
+          <div class="var-dims">
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Length</div>
+              <div class="dim-pill-val">37<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Width</div>
+              <div class="dim-pill-val">14<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill dp-blue">
+              <div class="dim-pill-lbl">Height</div>
+              <div class="dim-pill-val">5.0<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">dual-sided</span>
+            </div>
+          </div>
+          <div class="var-pitch"><strong>Maximum storage</strong>Both faces populated. Best for large H0 locomotives where body space is available.</div>
+        </div>
+
+        <!-- H0 Slim -->
+        <div class="var-tile">
+          <span class="var-badge badge-slim">Slim</span>
+          <div class="var-cap-hero">
+            <span class="var-cap-num">1,100</span>
+            <span class="var-cap-unit">µF</span>
+          </div>
+          <!-- Board: 37 × 14 mm, top face only — bottom zone dimmed -->
+          <svg class="var-board-svg" viewBox="0 0 210 82" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="7"  width="185" height="70" rx="2" fill="#152815" stroke="#2d5a2d" stroke-width="1.5"/>
+            <rect x="13" y="8"  width="183" height="30" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <rect x="13" y="46" width="183" height="30" rx="1" fill="#0c180c" opacity="0.45"/>
+            <line x1="12" y1="42" x2="197" y2="42" stroke="#2d5a2d" stroke-width="0.8" stroke-dasharray="5 3"/>
+            <text x="104" y="67" text-anchor="middle" font-size="7" fill="#2d5a2d" font-family="monospace" opacity="0.7">top face only</text>
+          </svg>
+          <div class="var-dims">
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Length</div>
+              <div class="dim-pill-val">37<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Width</div>
+              <div class="dim-pill-val">14<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill dp-green">
+              <div class="dim-pill-lbl">Height</div>
+              <div class="dim-pill-val">3.0<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">ultra-low</span>
+            </div>
+          </div>
+          <div class="var-pitch"><strong>Ultra-low profile</strong>Top face only. Same length as Full — ideal where height is the limiting factor.</div>
+        </div>
+
+        <!-- H0 Compact -->
+        <div class="var-tile">
+          <span class="var-badge badge-compact">Compact</span>
+          <div class="var-cap-hero">
+            <span class="var-cap-num">1,100</span>
+            <span class="var-cap-unit">µF</span>
+          </div>
+          <!-- Board: 18.6 mm (93 px) with ghost of full 37 mm board -->
+          <svg class="var-board-svg" viewBox="0 0 210 82" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="7" width="185" height="70" rx="2" fill="none" stroke="#2d5a2d" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.28"/>
+            <rect x="15" y="10" width="93" height="70" rx="2" fill="#091409" opacity="0.55"/>
+            <rect x="12" y="7"  width="93" height="70" rx="2" fill="#152815" stroke="#e07c28" stroke-width="1.5"/>
+            <rect x="13" y="8"  width="91" height="30" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <rect x="13" y="46" width="91" height="30" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <line x1="12" y1="42" x2="105" y2="42" stroke="#2d5a2d" stroke-width="0.8"/>
+            <line x1="106" y1="5" x2="106" y2="79" stroke="#e07c28" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.5"/>
+          </svg>
+          <div class="var-dims">
+            <div class="dim-pill dp-orange">
+              <div class="dim-pill-lbl">Length</div>
+              <div class="dim-pill-val">18.6<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">short board</span>
+            </div>
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Width</div>
+              <div class="dim-pill-val">14<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill dp-blue">
+              <div class="dim-pill-lbl">Height</div>
+              <div class="dim-pill-val">5.0<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">dual-sided</span>
+            </div>
+          </div>
+          <div class="var-pitch"><strong>Short footprint</strong>Both faces populated. Half the length — same 1,100 µF as the Slim. For length-restricted installations.</div>
+        </div>
+
+      </div><!-- /h0-grid -->
+
+      <!-- Common specs -->
+      <div class="prod-common-v2">
+        <div class="pcs-item">
+          <div class="pcs-lbl">Maximum Voltage</div>
+          <div class="pcs-val">20V DC</div>
+        </div>
+        <div class="pcs-item">
+          <div class="pcs-lbl">Soft-start IC</div>
+          <div class="pcs-val">TPS22810</div>
+        </div>
+        <div class="pcs-item">
+          <div class="pcs-lbl">Prices from</div>
+          <div class="pcs-val">R419.99 incl. VAT</div>
+        </div>
+      </div>
+
+      <a class="prod-cta-v2" href="#pricing">View Pricing &amp; Order →</a>
+
+    </div><!-- /H0 card -->
+
+
+    <!-- ══ N CARD ══ -->
+    <div class="prod-card-v2">
+
+      <!-- Header -->
+      <div class="prod-head-v2">
+        <div class="prod-img-v2">
+          <img src="images/stayon-n.png" loading="lazy" width="900" height="654"
+               alt="NXT StayOn-N board — four capacitors and hardware soft-start IC, top view">
+        </div>
+        <div class="prod-intro-v2">
+          <div class="prod-scale-v2">N Scale · 1:160</div>
+          <div class="prod-name-v2">Stay<span>On</span>-N</div>
+          <div class="prod-tagline-v2">Two variants — choose the height that fits your locomotive. Same footprint, same quality, different profiles.</div>
+          <span class="prod-variant-pill">2 configurations available</span>
+        </div>
+      </div>
+
+      <!-- Variant tiles -->
+      <div class="variants-grid-v2 n-grid">
+
+        <!-- N Full -->
+        <div class="var-tile">
+          <span class="var-badge badge-full">Full</span>
+          <div class="var-cap-hero">
+            <span class="var-cap-num">900</span>
+            <span class="var-cap-unit">µF</span>
+          </div>
+          <!-- Board: 23.5 × 9.5 mm at 8 px/mm = 188 × 76 px, dual-sided -->
+          <svg class="var-board-svg" viewBox="0 0 210 82" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="7"  width="188" height="74" rx="2" fill="#091409" opacity="0.55"/>
+            <rect x="11" y="4"  width="188" height="74" rx="2" fill="#152815" stroke="#2d5a2d" stroke-width="1.5"/>
+            <rect x="12" y="5"  width="186" height="31" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <rect x="12" y="44" width="186" height="32" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <line x1="11" y1="40" x2="199" y2="40" stroke="#2d5a2d" stroke-width="0.8"/>
+          </svg>
+          <div class="var-dims">
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Length</div>
+              <div class="dim-pill-val">23.5<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Width</div>
+              <div class="dim-pill-val">9.5<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill dp-blue">
+              <div class="dim-pill-lbl">Height</div>
+              <div class="dim-pill-val">5.0<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">dual-sided</span>
+            </div>
+          </div>
+          <div class="var-pitch"><strong>Maximum N scale storage</strong>Both faces populated. Best for N scale locos where vertical clearance is available.</div>
+        </div>
+
+        <!-- N Slim -->
+        <div class="var-tile">
+          <span class="var-badge badge-slim">Slim</span>
+          <div class="var-cap-hero">
+            <span class="var-cap-num">400</span>
+            <span class="var-cap-unit">µF</span>
+          </div>
+          <!-- Board: 23.5 × 9.5 mm, top face only -->
+          <svg class="var-board-svg" viewBox="0 0 210 82" xmlns="http://www.w3.org/2000/svg">
+            <rect x="11" y="4"  width="188" height="74" rx="2" fill="#152815" stroke="#2d5a2d" stroke-width="1.5"/>
+            <rect x="12" y="5"  width="186" height="31" rx="1" fill="#1e3c1e" opacity="0.8"/>
+            <rect x="12" y="44" width="186" height="32" rx="1" fill="#0c180c" opacity="0.45"/>
+            <line x1="11" y1="40" x2="199" y2="40" stroke="#2d5a2d" stroke-width="0.8" stroke-dasharray="5 3"/>
+            <text x="105" y="63" text-anchor="middle" font-size="7" fill="#2d5a2d" font-family="monospace" opacity="0.7">top face only</text>
+          </svg>
+          <div class="var-dims">
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Length</div>
+              <div class="dim-pill-val">23.5<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill">
+              <div class="dim-pill-lbl">Width</div>
+              <div class="dim-pill-val">9.5<span class="dim-pill-unit"> mm</span></div>
+            </div>
+            <div class="dim-pill dp-green">
+              <div class="dim-pill-lbl">Height</div>
+              <div class="dim-pill-val">3.0<span class="dim-pill-unit"> mm</span></div>
+              <span class="dim-pill-sub">ultra-low</span>
+            </div>
+          </div>
+          <div class="var-pitch"><strong>Ultra-low profile</strong>Top face only. Same footprint as Full — for very tight N scale installations where every millimetre of height counts.</div>
+        </div>
+
+      </div><!-- /n-grid -->
+
+      <!-- Common specs -->
+      <div class="prod-common-v2">
+        <div class="pcs-item">
+          <div class="pcs-lbl">Maximum Voltage</div>
+          <div class="pcs-val">20V DC</div>
+        </div>
+        <div class="pcs-item">
+          <div class="pcs-lbl">Soft-start IC</div>
+          <div class="pcs-val">TPS22810</div>
+        </div>
+        <div class="pcs-item">
+          <div class="pcs-lbl">Prices from</div>
+          <div class="pcs-val">R189.99 incl. VAT</div>
+        </div>
+      </div>
+
+      <a class="prod-cta-v2" href="#pricing">View Pricing &amp; Order →</a>
+
+    </div><!-- /N card -->
+
+  </div><!-- /prod-cards-list -->
 </section>
 
 <div class="divider"></div>
