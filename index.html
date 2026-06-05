@@ -1542,6 +1542,51 @@ footer {
 @media (max-width: 480px) {
   .price-card { flex-basis: 100%; max-width: 420px; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.lt-opt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 13px;
+  border-radius: 18px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.lt-active {
+  background: var(--blue);
+  color: #fff;
+  cursor: default;
+}
+
+.lt-inactive {
+  color: rgba(255,255,255,0.45);
+}
+
+.lt-inactive:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  /* Keep lang toggle visible on mobile but abbreviate */
+  .lt-opt { padding: 5px 10px; font-size: 11px; }
+}
 </style>
 </head>
 <body>
@@ -1558,9 +1603,12 @@ footer {
     <a class="nav-link" href="#pricing">Pricing</a>
     <a class="nav-link" href="#manuals">Manuals</a>
     <a class="nav-link" href="#contact">Contact</a>
-    <a class="nav-link" href="index-af.html" title="Afrikaanse weergawe" style="opacity:0.65;">🇿🇦 AF</a>
     <a class="nav-cta" href="#pricing">Buy Now</a>
   </nav>
+  <div class="lang-toggle">
+    <span class="lt-opt lt-active">🇬🇧 English</span>
+    <a class="lt-opt lt-inactive" href="index-af.html">🇿🇦 Afrikaans</a>
+  </div>
 </header>
 
 <!-- HERO -->
